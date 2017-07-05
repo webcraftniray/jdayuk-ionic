@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 
-/**
- * Generated class for the JcontentPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 @IonicPage()
 @Component({
   selector: 'page-jcontent',
@@ -14,11 +8,20 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class JcontentPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public alertCtrl: AlertController
+  ) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad JcontentPage');
-  }
+ popup(){
+   let alert = this.alertCtrl.create({
+       title: 'Thank You!',
+       subTitle: 'You\'ve "liked this artist"',
+       buttons: ['OK']
+     });
+     alert.present();
+}
 
 }
