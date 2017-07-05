@@ -8,71 +8,12 @@
 
 <ion-content padding>
 
-<ion-card>
-  <img src="https://ionicframework.com/dist/preview-app/www/assets/img/nin-live.png"/>
+<ion-card *ngFor="let category of categoyList">
   <ion-card-content>
-    <ion-card-title>
-      Nine Inch Nails Live
-      </ion-card-title>
-    <p>
-      The most popular industrial group ever, and largely
-      responsible for bringing the music to a mass audience.
-    </p>
-    <button ion-button (click)="popup()">Read More</button>
+    <ion-card-title>{{category.title}}</ion-card-title>
+    <p [innerHTML]="category.description"></p>
+    <button ion-button (click)="popup()">See Article List</button>
   </ion-card-content>
 </ion-card>
-<ion-card>
-  <img src="https://ionicframework.com/dist/preview-app/www/assets/img/nin-live.png"/>
-  <ion-card-content>
-    <ion-card-title>
-      Nine Inch Nails Live
-      </ion-card-title>
-    <p>
-      The most popular industrial group ever, and largely
-      responsible for bringing the music to a mass audience.
-    </p>
-    <button ion-button>Read More</button>
-  </ion-card-content>
-</ion-card>
-<ion-card>
-  <img src="https://ionicframework.com/dist/preview-app/www/assets/img/nin-live.png"/>
-  <ion-card-content>
-    <ion-card-title>
-      Nine Inch Nails Live
-      </ion-card-title>
-    <p>
-      The most popular industrial group ever, and largely
-      responsible for bringing the music to a mass audience.
-    </p>
-    <button ion-button>Read More</button>
-  </ion-card-content>
-</ion-card>
-<ion-card>
-  <img src="https://ionicframework.com/dist/preview-app/www/assets/img/nin-live.png"/>
-  <ion-card-content>
-    <ion-card-title>
-      Nine Inch Nails Live
-      </ion-card-title>
-    <p>
-      The most popular industrial group ever, and largely
-      responsible for bringing the music to a mass audience.
-    </p>
-    <button ion-button>Read More</button>
-  </ion-card-content>
-</ion-card>
-<ion-card>
-  <img src="https://ionicframework.com/dist/preview-app/www/assets/img/nin-live.png"/>
-  <ion-card-content>
-    <ion-card-title>
-      Nine Inch Nails Live
-      </ion-card-title>
-    <p>
-      The most popular industrial group ever, and largely
-      responsible for bringing the music to a mass audience.
-    </p>
-    <button ion-button>Read More</button>
-  </ion-card-content>
-</ion-card>
-
 
 </ion-content>
