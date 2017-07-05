@@ -27,13 +27,13 @@ getCategoryList() {
     });
 }
 
-getArticlesInCategory(catId, limit = 100, offset = 0) {
+getArticlesInCategory(catId) {
   if (this.ArticleList) {
       return Promise.resolve(this.ArticleList);
     }
 
     return new Promise(resolve => {
-      this.http.get(this.baseApiUrl + "get/content/articles?catid="+catId+"&limit="+limit+"&offset="+offset+"&api_key=" + this.api_key)
+      this.http.get(this.baseApiUrl + "get/content/articles?catid="+catId+"&limit=100&offset=0&api_key=" + this.api_key)
         .map(res => res.json())
         .subscribe(data => {
           this.ArticleList = data;

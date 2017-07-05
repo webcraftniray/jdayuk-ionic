@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { JoomlaapiProvider } from '../../providers/joomlaapi/joomlaapi';
+import { JarticlesPage } from '../jarticles/jarticles';
 
 
 @IonicPage()
@@ -36,6 +37,10 @@ getCategoriesFromApi() {
         this.categoyList = CategoryList.categories;
         console.log(this.categoyList);
       });
+}
+
+getMyArticles(id){
+  this.navCtrl.push(JarticlesPage, { id: id });
 }
 
 

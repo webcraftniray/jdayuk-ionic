@@ -9,6 +9,7 @@ import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { JcontentPage } from '../pages/jcontent/jcontent';
+import { JarticlesPage } from '../pages/jarticles/jarticles';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -21,7 +22,8 @@ import { JoomlaapiProvider } from '../providers/joomlaapi/joomlaapi';
     ContactPage,
     HomePage,
     TabsPage,
-    JcontentPage
+    JcontentPage,
+    JarticlesPage
   ],
   imports: [
     BrowserModule,
@@ -35,7 +37,8 @@ import { JoomlaapiProvider } from '../providers/joomlaapi/joomlaapi';
     ContactPage,
     HomePage,
     TabsPage,
-    JcontentPage
+    JcontentPage,
+    JarticlesPage
   ],
   providers: [
     StatusBar,
