@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Response } from '@angular/http';
+import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class JoomlaapiProvider {
@@ -28,18 +30,23 @@ getCategoryList() {
 }
 
 getArticlesInCategory(catId) {
-  if (this.ArticleList) {
-      return Promise.resolve(this.ArticleList);
-    }
 
-    return new Promise(resolve => {
-      this.http.get(this.baseApiUrl + "get/content/articles?catid="+catId+"&limit=100&offset=0&api_key=" + this.api_key)
-        .map(res => res.json())
-        .subscribe(data => {
-          this.ArticleList = data;
-          resolve(this.ArticleList);
-        });
-    });
+  return  this.http.get(this.baseApiUrl + "get/content/articles?catid="+catId+"&limit=100&offset=0&api_key=" + this.api_key)
+  .map((res : Response ) => res.json());
+
+
+  // if (this.ArticleList) {
+  //     return Promise.resolve(this.ArticleList);
+  //   }
+  //
+  //   return new Promise(resolve => {
+  //     this.http.get(this.baseApiUrl + "get/content/articles?catid="+catId+"&limit=100&offset=0&api_key=" + this.api_key)
+  //       .map(res => res.json())
+  //       .subscribe(data => {
+  //         this.ArticleList = data;
+  //         resolve(this.ArticleList);
+  //       });
+  //   });
 }
 
 }

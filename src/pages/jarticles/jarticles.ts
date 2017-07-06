@@ -20,10 +20,9 @@ export class JarticlesPage {
   }
 
 getArticleListFromApi(catId){
-  this.joomlaApi.getArticlesInCategory(catId)
-    .then(ArticleList => {
-      this.ArticleList = ArticleList.articles;
-    });
+  this.joomlaApi.getArticlesInCategory(catId).subscribe((ArticleList)=>{
+              this.ArticleList = ArticleList.articles;
+        });
 }
 
 
