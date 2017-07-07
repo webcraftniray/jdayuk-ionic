@@ -9,10 +9,9 @@
 <ion-content padding>
   <ion-card *ngFor="let article of ArticleList">
     <ion-card-content>
-      <ion-item>
-        <h2>{{article.title}}</h2>
+
+        <h1>{{article.title}}</h1>
         <p>Published on: {{article.published_date}}</p>
-      </ion-item>
       <p [innerHTML]="article.content"></p>
     </ion-card-content>
   </ion-card>

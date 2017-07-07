@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
 import { JoomlaapiProvider } from '../../providers/joomlaapi/joomlaapi';
 import { JarticlesPage } from '../jarticles/jarticles';
 
@@ -12,12 +12,14 @@ import { JarticlesPage } from '../jarticles/jarticles';
 export class JcontentPage {
 
 public categoyList: any;
+private loading: any;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     public alertCtrl: AlertController,
-    public joomlaApi: JoomlaapiProvider
+    public joomlaApi: JoomlaapiProvider,
+    public loadingCtrl: LoadingController
   ) {
     this.getCategoriesFromApi();
   }
@@ -32,16 +34,30 @@ public categoyList: any;
 }
 
 getCategoriesFromApi() {
+  this.presentLoading();
     this.joomlaApi.getCategoryList()
       .then(CategoryList => {
         this.categoyList = CategoryList.categories;
-        console.log(this.categoyList);
+        this.dismissLoading();
       });
 }
 
 getMyArticles(id){
   this.navCtrl.push(JarticlesPage, { id: id });
 }
+
+private presentLoading() {
+    this.loading = this.loadingCtrl.create({
+      spinner: 'dots',
+      content: "Please wait...",
+    });
+
+    return this.loading.present();
+  }
+
+private dismissLoading() {
+    this.loading.dismiss();
+  }
 
 
 

@@ -7,13 +7,9 @@
 </ion-header>
 
 <ion-content padding>
-
-<ion-card *ngFor="let category of categoyList">
-  <ion-card-content>
-    <ion-card-title>{{category.title}}</ion-card-title>
-    <p [innerHTML]="category.description"></p>
-    <button ion-button (click)="getMyArticles(category.id)">See Article List</button>
-  </ion-card-content>
-</ion-card>
-
+<ion-list>
+  <button ion-item *ngFor="let category of categoyList" (click)="getMyArticles(category.id)">
+{{category.title}}
+  </button>
+</ion-list>
 </ion-content>
